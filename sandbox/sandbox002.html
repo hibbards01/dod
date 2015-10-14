@@ -1,0 +1,140 @@
+<!--
+	Author: Michael Gribble
+	Written: 12 Oct 2015
+	Course: CIT 261
+-->
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset = utf-8" />
+		<script type="text/javascript">
+		
+			var x;
+			
+			var testDate = new Date();
+			var xTestDate;
+			
+			var values = [19, 8, 5, 16, 1, 18, 4];
+			var xValues;
+		
+			var person = {
+				name: "Michael",
+				gender: "Male",
+				height: "175cm",
+				weight: "77kg",
+				school: "BYU-I"
+			};
+			var xPerson;
+			
+			var testString = "My name is Michael";
+			var xTestString;
+			
+			var testNum = 42;
+			var xTestNum;
+			
+			var eitherOr = true;
+			var xEitherOr;
+			
+			function doDisplay() {
+				console.log(testDate);
+				console.log(values);
+				console.log(person);
+				console.log(testString);
+				console.log(testNum);
+				console.log(eitherOr);
+				console.log("o<0>o");
+				
+				document.getElementById("stringify").disabled = false;
+			}
+			
+			function doStringify() {
+			
+				x = JSON.stringify(testDate);
+				xTestDate = x;
+				console.log(x);
+			
+				x = JSON.stringify(values);
+				xValues = x;
+				console.log(x);
+			
+				x = JSON.stringify(person);
+				xPerson = x;
+				console.log(x);
+				
+				x = JSON.stringify(testString);
+				xTestString = x;
+				console.log(x);
+				
+				x = JSON.stringify(testNum);
+				xTestNum = x;
+				console.log(x);
+				
+				x = JSON.stringify(eitherOr);
+				xEitherOr = x;
+				console.log(x);
+				
+				x = JSON.stringify("");
+				console.log(x);
+				
+				x = JSON.stringify();
+				console.log(x);
+				
+				console.log("o<0>o");
+				
+				document.getElementById("parse").disabled=false;
+			}
+			
+			function doParse() {
+			
+				document.getElementById("parse").disabled=true;
+				
+				x = JSON.parse(xTestDate);
+				console.log(x);
+				x = new Date(x);
+				console.log(x);
+			
+				x = JSON.parse(xValues);
+				console.log(x);
+			
+				x = JSON.parse(xPerson);
+				console.log(x);
+				
+				x = JSON.parse(xTestString);
+				console.log(x);
+				
+				x = JSON.parse(xTestNum);
+				console.log(x);
+				
+				x = JSON.parse(xEitherOr);
+				console.log(x);
+				
+				try {
+					x = JSON.parse("[1,5,13");
+					console.log(x);
+				} catch (error) {
+					console.log(error);
+				}
+				
+				try {
+					x = JSON.parse("");
+					console.log(x);
+				} catch (error) {
+					console.log(error);
+				}
+				
+				try {
+					x = JSON.parse();
+					console.log(x);
+				} catch (error) {
+					console.log(error);
+				}
+			}
+		
+		</script>
+	</head>
+	<body>
+		<input type="button" id="display" onclick="doDisplay()" value="Display" />
+		<input type="button" id="stringify" onclick="doStringify()" value="Stringify" disabled />
+		<input type="button" id="parse" onclick="doParse()" value="Parse" disabled />
+	</body>
+</html>
