@@ -33,7 +33,13 @@ window.onload = function() {
     // onchange
     document.getElementById('js3').onchange = function(event) {
         document.getElementById('js4').className = 'hide';
-    }
+    };
+
+    // Onclick change the color
+    document.getElementById('js4').onclick = function(event) {
+        console.log('here');
+        this.style = 'background-color: black; color: white';
+    };
 
     setInterval(changePics, 3000);
 };
@@ -43,6 +49,17 @@ var img = null;
 
 function settup (argument) {
     img = document.getElementById('img');
+}
+
+function changeColor(input) {
+    // Check the colors
+    if (input.style.color !== 'white') {
+        input.style.backgroundColor = 'black';
+        input.style.color = 'white';
+    } else {
+        input.style.backgroundColor = 'white';
+        input.style.color = 'black';
+    };
 }
 
 function changePics() {
