@@ -1,0 +1,23 @@
+.box {
+    background-color: black;
+    color: white;
+    width: 120px;
+    transition: width 4s height 4s linear;
+}
+
+.box > h2 {
+    padding: 5px;
+}
+
+.circle {
+    background-color: black;
+    color: white;
+    width: 120px;
+    height: 100px;
+    border-radius: 50px;
+    transition: width 4s height 4s linear;
+}
+
+.circle > h2 {
+    padding: 30px 5px;
+}
