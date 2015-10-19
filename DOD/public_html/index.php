@@ -9,6 +9,16 @@
     <body>
         <div>
             <header>
+                <nav>
+                    <ul>
+                        <li>
+                            <mark>Yes</mark>
+                        </li>
+                        <li>
+                            <mark>No</mark>
+                        </li>
+                    </ul>   
+                </nav>
             </header>
             <main>
                 <div class="mainContent">
@@ -20,7 +30,18 @@
                 </audio>
                 <br>
                 <div class="video">
-                    <iframe width="400" height="350" src="https://youtu.be/-lGrARvsuD0" allowfullscreen></iframe> 
+                    <iframe width="400" height="350" src="https://youtu.be/-lGrARvsuD0" allowfullscreen></iframe>
+                    <br>
+                    <a href="www.yahoo.com">YAHOO!!!!!</a>
+                    <article>
+                        <h1>asdfjalskdjfklasjdklfjalskd;fjaklsdjfklajsdlkfjakls</h1>
+                        dfjaklsdf
+                        asdkfjaklsdjfklajsdlfkjasdklfjalksdjflkasdjlkf
+                        <mark>asdfhaksjdfhkjashdkfj</mark>
+                        asdfkjaskdljflaskdjflkajdflajsdlfk
+                    </article>
+                    <button input type="button">LOL</button>
+                    <img src="puple.gif">
                 </div>                   
                 <footer>
                     <script src="/javascript/analytics.js"></script>
