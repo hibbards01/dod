@@ -5,10 +5,12 @@
         <link rel="stylesheet" type="text/css" href="css/mobile.css">
         <script type="text/javascript" src="scripts/mobile_trigger.js"></script>
     </head>
-    <body onload="init()">
+    <body onload="init()" id="body">
         <div id="moveCircle" class="circle">
             <h2>Drag here</h2>
         </div>
+        <br />
+        <button id="button1" class="btn button" ontouchstart="moving(this)">Click Here</button>
         <br />
         <button id="button" class="btn button">Click Here</button>
     </body>
