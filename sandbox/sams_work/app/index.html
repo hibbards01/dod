@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prototype</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="modal.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body id="body">
+        <div class="main-body" id="main">
+            <div class="edit-panel">
+                <h2>Objects</h2>
+                <button id="new" class="button right btn-blue">New</button>
+                <hr />
+                <div class="tree">
+                    <ul id="list">
+                        <li><img class="arrow" />Earth</li>
+                        <li class="inner none">Vector 1</li>
+                        <li><img class="arrow" />Moon</li>
+                        <li class="inner none">Vector 2</li>
+                    </ul>
+                </div>
+                <hr />
+                <h2>Edit</h2>
+                <h2 id="edit" class="right margin-top"></h2>
+                <hr />
+                <div class="form" id="editForm">
+                </div>
+                <hr />
+                <button class="button">Clear</button>
+                <button class="button btn-orange">Reset</button>
+                <button id="run" class="button btn-green btn-large">Run&nbsp;<span class="glyphicon glyphicon-play"></span>
+            </div>
+            <div id="sim" class="simulator">
+                <div class="earth">
+                    <img class="imgEarth" src="https://0.s3.envato.com/files/75153281/preview_image.png" width="150" height="150" />
+                    <img class="bracketEarth" id="earthBrackets" src="brackets.png" />
+                    <img id="vector1" class="vector1" src="http://www.clker.com/cliparts/O/l/h/r/H/R/red-arrow-right-hi.png" />
+                </div>
+                <div class="moon">
+                    <img class="imgMoon" src="http://www.hd-wallpapersdownload.com/upload/bulk-upload/desktop-moon-background-pictures-dowload.jpg" width="135" height="70">
+                    <img class="bracketMoon" id="moonBrackets" src="brackets.png" />
+                    <img id="vector2" class="vector2" src="http://www.clker.com/cliparts/O/l/h/r/H/R/red-arrow-right-hi.png">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
