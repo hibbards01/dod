@@ -18,6 +18,17 @@ window.onload = function() {
 
     // Grab the button
     document.getElementById('button').onclick = doSomething;
+
+    //
+    // Nasty Paths
+    //
+    document.getElementById('nasty_path_1').onclick = doSomething();
+
+    var nasty3 = document.getElementById('nasty_path_3');
+    nasty3.addEventListener("onclick", doSomething(), false);
+
+    var nasty4 = document.getElementById('nasty_path_4');
+    nasty3.addEventListener("onclick", null, false);
 }
 
 //
