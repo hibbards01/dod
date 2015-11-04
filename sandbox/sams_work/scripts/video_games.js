@@ -18,16 +18,25 @@ window.onload = function() {
 }
 
 /*************************************
+* exitModal
+*************************************/
+function exitModal(event) {
+    var modal = this;
+
+    // Remove the modal
+    modal.style.opacity = 0;
+    modal.style.pointerEvents = "none";
+
+    // Now remove myself!
+    setTimeout(function() {
+        modal.parentNode.removeChild(modal);
+    }, 1000);
+}
+
+/*************************************
 * showDetails
 *************************************/
 function showDetails(event) {
-	// Make sure to remove an existing modal
-	var remove = document.getElementById('modal');
-
-	if (remove !== null) {
-		remove.parentNode.removeChild(remove);
-	}
-
 	var td = event.srcElement.parentNode;
 
 	// Now see which id it is
@@ -71,6 +80,9 @@ function showDetails(event) {
 	modal.className = 'my-modal';
 	modal.id = 'modal';
 
+    var div = document.createElement('div');
+    modal.appendChild(div);
+
 	// Create the tags for the body of the text
 	var header = document.createElement('h2');
 	header.innerHTML = headerTxt;
@@ -85,18 +97,22 @@ function showDetails(event) {
 	image.src = img;
 
 	// Now append them all!
-	modal.appendChild(header);
-	modal.appendChild(document.createElement('hr'));
-	modal.appendChild(document.createElement('br'));
-	modal.appendChild(document.createElement('br'));
-	modal.appendChild(image);
-	modal.appendChild(document.createElement('br'));
-	modal.appendChild(p);
-	modal.appendChild(document.createElement('br'));
-	modal.appendChild(h3);
+	div.appendChild(header);
+	div.appendChild(document.createElement('hr'));
+	div.appendChild(document.createElement('br'));
+	div.appendChild(document.createElement('br'));
+	div.appendChild(image);
+	div.appendChild(document.createElement('br'));
+	div.appendChild(p);
+	div.appendChild(document.createElement('br'));
+	div.appendChild(h3);
 
 	// Now finally append it to the body!
 	document.getElementById('body').appendChild(modal);
+
+    // Create the onclick function
+    div.onclick = function() {}
+    modal.onclick = exitModal;
 
 	// Now ease it in!
 	setTimeout(function() {
