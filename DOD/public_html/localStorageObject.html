@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+     // //set new object
+     //  function guy(a,b,c){
+     //    this.name = a;
+     //    this.age = b;
+     //    this.model = c;
+     //  }
+     //  function api(){  
+
+     //        //set variable from user input  
+     //    var person = new guy("yes",46,"<h1>Person</h1>");
+     //    //set API and stringify it
+     //    var aString = JSON.stringify(person);       
+     //    localStorage["personProp"] = aString;                      
+     //   // localStorage.setItem("personProp", aString);
+     //    var parsedPerson = JSON.parse(localStorage["personProp"]);
+     //    //display
+     //    document.getElementById("result").innerHTML = parsedPerson["name"];
+     //    //
+     //    //\\localStorage.removeItem("key");
+        
+     //    // clear the entire storage
+     //    //localStorage.clear();
+
+     //    //shows how many keys have stored
+     //    //document.getElementById("result").innerHTML= localStorage.length;
+     //  }
+        ////////////////////////////////////////nasty path
+        var person = null;
+        
+              //var person= ["car","bus","cycle"];
+      //var person = {firstName:"Tom",age:49,lastName:"sjdkafjksjdf"}
+        function api(){
+        //set variable from user input
+        //var value = document.getElementById('api').value;    
+        var aString = JSON.stringify(person);                                     
+        //set API
+        localStorage["badbad"] = aString; 
+        var parsedPerson = JSON.parse(localStorage["badbad"]);
+        //display
+        document.getElementById("result").innerHTML = localStorage.getItem["badbad"];
+        //remove item from storage
+        //localStorage.removeItem("key");
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="result"></div>
+    <input type="text" id="api">
+    <button type="button" onclick="api()">click click</button>
+  </body>
+</html>
