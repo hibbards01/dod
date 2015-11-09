@@ -1,0 +1,237 @@
+.main-body {
+    width: 1000px;
+    height: 685px;
+    border: solid black 1px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.edit-panel {
+    padding: 10px;
+    float: left;
+    height: 683px;
+    width: 248px;
+    background-color: #F2F2F2;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.edit-panel > h2 {
+    margin-bottom: 7px;
+    margin-left: 10px;
+    display: inline;
+    font-size: 20px;
+}
+
+.margin-top {
+    margin-top: 0px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 7px;
+    border: solid black 1px;
+}
+
+.simulator {
+    float: right;
+    background-color: black;
+    height: 683px;
+    width: 750px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.form {
+    height: 255px;
+    position: relative;
+}
+
+.tree {
+    height: 255px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+li {
+    font-size: 15px;
+}
+
+li.inner {
+    height: 30px;
+    padding-top: 4px;
+    padding-left: 30px;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #D9D9D9;
+}
+
+img.arrow {
+    content: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/MediaWiki_Vector_skin_right_arrow.svg/1024px-MediaWiki_Vector_skin_right_arrow.svg.png");
+    width: 30px;
+    height: 30px;
+}
+
+.button {
+    text-align: center;
+    border-color: #ccc;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #333;
+}
+
+.button:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-blue:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+    cursor: pointer;
+}
+
+.btn-green {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-green:hover {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.btn-orange:hover {
+    color: #fff;
+    background-color: #ec971f;
+    border-color: #d58512;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.btn-large {
+    width: 114px;
+}
+
+.margin-bottom {
+    margin-bottom: 5px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.none {
+    display: none;
+}
+
+.inline {
+    display: inline;
+}
+
+.btn-big {
+    position: absolute;
+    bottom: 0;
+    width: 228px;
+}
+
+.earth {
+    position: relative;
+    right: -152px;
+    top: 215px;
+}
+
+.earth > img.imgEarth {
+    z-index: 99;
+    position: relative;
+    right: -72px;
+    top: -3px;
+}
+
+.moon {
+    position: relative;
+    right: -518px;
+    top: -61px;
+}
+
+.moon > img.imgMoon {
+    z-index: 9999;
+    position: relative;
+    right: -15px;
+}
+
+.bracketMoon {
+    position: relative;
+    width: 178px;
+    left: -139px;
+    visibility: hidden;
+}
+
+.bracketEarth {
+    position: relative;
+    width: 304px;
+    right: 154px;
+    z-index: 0;
+    visibility: hidden;
+}
+
+.vector1 {
+    position: relative;
+    width: 46px;
+    left: -313px;
+    z-index: 99999;
+    visibility: hidden;
+}
+
+.vector2 {
+    z-index: 99999;
+    position: relative;
+    width: 132px;
+    height: 27px;
+    left: -300px;
+    top: -62px;
+    transform: rotate(-90deg);
+    visibility: hidden;
+}

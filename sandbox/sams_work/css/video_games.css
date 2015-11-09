@@ -1,0 +1,75 @@
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+tr {
+    text-align: center;
+}
+
+img {
+    width: 280px;
+}
+
+.my-modal {
+    position: absolute;
+    overflow-y: scroll;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9999;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    background: rgba(232,232,232,0.5);
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/*.modal:target {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    pointer-events: auto;
+}*/
+
+.my-modal > div {
+    width: 500px;
+    background-color: #fff;
+    margin: 5% auto;
+    border-radius: 10px;
+    padding: 15px;
+    border: black 2px solid;
+}
+
+.my-modal > div > h2 {
+    margin: 10px;
+    font-size: 50px;
+}
+
+.my-modal > div > p {
+    font-size: 30px;
+}
+
+.my-modal > div > img {
+    width: 280px;
+}
+
+.my-modal > div > hr {
+    margin-bottom: 12px;
+}
+
+.my-close {
+    cursor: pointer;
+}
+
+.my-modal > div > input {
+    width: 250px;
+    margin-bottom: 10px;
+}
