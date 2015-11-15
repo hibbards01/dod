@@ -1,0 +1,15 @@
+#heading {
+    text-align: center;
+    width: 500px;
+}
+
+.body {
+    background-color: #FF6600;
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+    border-radius: 20px;
+    display: table;
+    vertical-align: middle;
+    transform: skew(-10deg, -10deg);
+}
