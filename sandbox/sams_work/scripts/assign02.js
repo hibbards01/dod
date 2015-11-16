@@ -9,6 +9,51 @@
 ****************************************************/
 
 /*************************************
+* Animal
+*************************************/
+function Animal(type, weight) {
+    this.type = type;
+    this.weight = weight;
+}
+
+function Dog(name, weight, legs) {
+    // Private members?
+    var legCount = legs;
+
+    this.name = name;
+    Animal.call(this, "Dog", weight);
+
+    this.getLegCount = function() {
+        console.log("LegCount = " + legCount);
+    }
+
+    this.setLegCount = function(legs) {
+        legCount = legs;
+    }
+}
+
+function Cat(name, weight) {
+    this.name = name;
+    Animal.call(this, "Cat", weight);
+
+    function meow() {
+        console.log("MEOW!");
+    }
+}
+
+function BadAnimal(type, weight) {
+    this.type = type;
+    this.weight = weight;
+}
+
+function BadDog(name, weight) {
+    // Animal.call(null, "Dog", weight); // This never gets set
+    this.name = null;
+
+    Animal.call("", "Dog", weight);
+}
+
+/*************************************
 * family
 *************************************/
 function family(dad, mom, children) {
@@ -37,12 +82,12 @@ function family(dad, mom, children) {
         console.log(names);
     };
 
-    return this; // If you don't return this, then no object is returned
+    //return this; // If you don't return this, then no object is returned
 }
 
 window.onload = function() {
     // Create family!
-    var hibbard = family("Sam", "Katie", ["Savannah", "James"]);
+    var hibbard = new family("Sam", "Katie", ["Savannah", "James"]);
 
     //
     // Good paths
@@ -94,6 +139,36 @@ window.onload = function() {
     fun("Code", [], null);
 
     var fun2 = function_name();
+
+    //
+    // Good paths
+    //
+    var dog = new Dog("Charlie", "2lbs", 4);
+    console.log(dog.name);
+    console.log(dog.weight);
+    console.log(dog.type);
+
+    dog.getLegCount();
+    dog.setLegCount(3);
+    dog.getLegCount();
+
+    var cat = new Cat("Scott", "1lb");
+    console.log(cat.name);
+    console.log(cat.weight);
+
+    try {
+        console.log(cat.meow());
+    } catch(error) {
+        console.log(error);
+    }
+
+    //
+    // Nasty paths
+    //
+    var badDog = new BadDog("Sam", "5lbs.");
+    console.log(badDog.name);
+    console.log(badDog.type);
+    console.log(badDog.weight);
 }
 
 /*************************************
