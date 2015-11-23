@@ -1,0 +1,57 @@
+@keyframes move-forward {
+    0% {
+        top: 0px;
+        left: 0px;
+        transform: rotate(0deg);
+    }
+    25% {
+        top: 100px;
+        left: 100px;
+        transform: rotate(90deg);
+    }
+    50% {
+        top: 200px;
+        left: 150px;
+        transform: rotate(180deg);
+    }
+    100% {
+        top: 200px;
+        left: 200px;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move-back {
+    0% {
+        top: 200px;
+        left: 200px;
+        transform: rotate(360deg);
+    }
+    25% {
+        top: 200px;
+        left: 150px;
+        transform: rotate(180deg);
+    }
+    50% {
+        top: 100px;
+        left: 100px;
+        transform: rotate(90deg);
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        transform: rotate(0deg);
+    }
+}
+
+img {
+    width: 100px;
+    display: inline;
+    position: relative;
+    cursor: pointer;
+}
+
+h3 {
+    display: inline;
+    position: relative;
+}
