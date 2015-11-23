@@ -2,7 +2,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Author: Michael Gribble
 	Date Written: 18 Nov 2015
-	Date Modified: 20 Nov 2015
+	Date Modified: 20, 23 Nov 2015
 	Course: CIT 261
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  -->
@@ -116,7 +116,7 @@
 				Create & display contents of an associative array
 			*/
 			var assoc = {
-				name: 'Lancelot',
+				name: 'Sir Lancelot of Camelot',
 				quest: 'To seek the Holy Grail',
 				color: 'Blue'
 			};
@@ -136,6 +136,76 @@
 			console.log("arrayName['keyName']");
 			console.log("");
 			
+			/*
+				Demonstrate associative array, UNCERTAIN PATH
+				Create an associative array with a null value
+			*/
+			console.log("Associative Array Demo, UNCERTAIN PATH");
+			console.log("Create an associative array containing a null value, " + 
+						"but with a proper key");
+			
+			var assoc = {
+				name: 'Sir Robin of Camelot',
+				quest: 'To seek the Holy Grail',
+				capitalOfAssyria: 'I don\'t know that!',
+				color: null
+			};
+			console.log(assoc);
+			console.log("");
+			
+			/*
+				Demonstrate associative array, NASTY PATH
+				Create an associative array with a null entry
+			*/
+			console.log("Associative Array Demo, NASTY PATH");
+			console.log("Create an associative array containing a null entry");
+			
+			/*try {
+				var assoc = {
+					name: 'Sir Robin of Camelot',
+					quest: 'To seek the Holy Grail',
+					null, 
+					capitalOfAssyria: 'I don\'t know that!'
+					
+				};
+			} catch (error) {
+				console.log(error);
+			}*/
+			console.log("Even in a try-catch statement, this is a " + 
+						"grevious syntax error, and breaks the whole thing");
+			console.log("");
+			
+			/*
+				Demonstrate associative array, NASTY PATH
+				Fetch a value from an array, using 'null' as the key
+			*/
+			console.log("Associative Array Demo, NASTY PATH");
+			console.log("Fetch a value from an array, using 'null' as the key");
+			
+			var assoc = {
+				name: 'Sir Robin of Camelot',
+				quest: 'To seek the Holy Grail',
+				capitalOfAssyria: 'I don\'t know that!'
+			};
+			console.log(assoc[null]);
+			console.log("Note that 'undefined' is returned.");
+			console.log("");
+			
+			/*
+				Demonstrate associative array, NASTY PATH
+				Fetch a value from an array, using a nonexistent key
+			*/
+			console.log("Associative Array Demo, NASTY PATH");
+			console.log("Fetch a value from an array, using a nonexistent key");
+			
+			var assoc = {
+				name: 'Sir Robin of Camelot',
+				quest: 'To seek the Holy Grail',
+				capitalOfAssyria: 'I don\'t know that!'
+			};
+			console.log(assoc['age']);
+			console.log("Note that 'undefined' is returned.");
+			console.log("");
 			
 		</script>
 	</head>
