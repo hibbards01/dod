@@ -1,0 +1,42 @@
+.box {
+    background-color: black;
+    color: white;
+    width: 120px;
+    height: 40px;
+    transition: width 2s, height 2s, linear;
+}
+
+.circle {
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    transition: width 4s, height 4s, linear;
+}
+
+
+.box1 {
+    background-color: black;
+    color: white;
+    width: 120px;
+    height: 40px;
+}
+
+@keyframes move {
+    from {
+        background-color: black;
+        transform: rotate(0deg);
+    }
+    to {
+        background-color: red;
+        transform: rotate(180deg);
+    }
+}
+
+.square {
+    background-color: blue;
+    color: black;
+    width: 100px;
+    height: 100px;
+}

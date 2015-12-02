@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  .reframe{
+    width: 200px;
+    height: 200px;
+    background: url(space.jpg);
+  }
+  </style>
+  <script type = "text/javascript">
+  window.onload = function() {
+      document.getElementById('reframe').onclick = function() {
+        var frame = this;
+
+        frame.style.transition = "all 2s linear";
+        frame.style.height = "300px";
+        frame.style.width = "300px";
+    }
+  }
+  </script>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div id = "reframe" class = "reframe">
+  </div>
+</body>
+</html>

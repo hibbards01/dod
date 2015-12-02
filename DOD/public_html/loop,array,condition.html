@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        //statement
+        var Numarray = [19, 8, 5, 16, 1, 18, 4];
+		var integer = 0;
+		var emptyString = "";
+		var bool = true;
+		var display = "";
+		var display2 = "";
+
+        function loop(){
+        	for(var i = 0; i< Numarray.length; i++)
+        	{
+        		//var display = ""; 
+        		display += Numarray[i] + " ";
+        	}
+
+        	for(var i = 0; i< 10; i++)
+        	{
+        		//var display2 = "";
+        		display2 += integer + " ";
+        		integer++;
+        	}
+
+        	document.getElementById('result').innerHTML = display + "<br>" + display2;
+        	//reset variable
+        	display = "";
+        	display2 = "";
+   		}
+   		function nastyLoop(){
+   			for ( ;j< array.length; j++)
+   			{
+   				display += array[i] + " ";
+   			}
+
+   			for(var i = 0; i < array.length; i)
+        	{
+        		//var display2 = "";
+        		display2 += integer + " ";
+        		integer++;
+        	}
+        	console.log(display);
+        	console.log(display2);
+        	document.getElementById('result').innerHTML = display + "<br>" + display2;
+        	//reset variable
+        	display = "";
+        	display2 = "";
+   		}
+
+   		function whileloop(){
+   			var counter = 10;
+   			while(counter <= 10){
+   				console.log(counter);
+   				counter++;
+   			}
+   			document.getElementById('result').innerHTML = counter;
+   		}
+
+   		function nastywhileLoop(){
+   			// while(){
+   			// console.log(counter);
+   			// counter++;
+
+   			// while(" "){
+   			// console.log(counter);
+   			// counter++;
+   		}
+
+   		function dowhileloop(){
+   			var myCount = 0;
+			do {
+				++myCount;
+			} while (myCount < 10);
+
+   			document.getElementById('result').innerHTML = myCount;
+   		}
+
+   		function nastyDoWhileloop(){
+   			var myCount = 0;
+			do {
+				++myCount;
+			} while (myCount > 10);
+
+			var myCount = 0;
+			do {
+				++myCount;
+			} while ("myCount > 10");
+		}
+
+		function ifelseCondition(){
+			if(!bool){
+				document.getElementById('result').innerHTML = "FALSE";
+			}else{
+				document.getElementById('result').innerHTML = "TRUE";
+			}
+		}
+
+		function NastyifelseCondition(){
+			if(null){
+				document.getElementById('result').innerHTML = "FALSE";
+			}else if("null"){
+				document.getElementById('result').innerHTML = "TRUE";
+			}else{
+				document.getElementById('result').innerHTML = "TRUE";
+			}
+		}
+
+		function arrayDEMO(){
+		    var array = [1, 2, "yes", "NO", null];
+			for(var i = 0; i< array.length; i++)
+        	{
+        		display += array[i] + " ";
+        	}
+        	document.getElementById('result').innerHTML = display;
+        	display = "";
+		}
+
+		function NastyarrayDEMO(){
+		  var array = [1, 2, "yes", , null];
+			for(var i = 0; i< array.length; i++)
+        	{
+        		display += array[i] + " ";
+        	}
+          display += "<br>";
+          
+          //-1 index
+          display += array[-1];
+          display += "<br>";
+
+          //ask for 10th
+          display += array[10];
+          display += "<br>";
+
+          //add 11th
+          array[11] = 19;
+          display += array[11];
+          display += "<br>";
+          document.getElementById('result').innerHTML = display;
+		}
+
+		function AssoarrayDEMO(){
+		    var array = {
+		    	name : 'smith',
+		    	model :223,
+		    	bool : true};
+        	display = array[null];
+        	document.getElementById('result').innerHTML = display;
+        	display = "";
+		}
+
+		function NastyAssoarrayDEMO(){
+		    var array = [];
+		    	array['name'] = 'smith';
+		    	array['news'] = 232;
+		    	array['bool'] = true;
+		    	array[null] = "yes";
+          array['yes'] = null
+          display = array['yes'];
+        	document.getElementById('result').innerHTML = display;
+        	display = "";
+		}
+        </script>
+    </head>
+    <body>
+    	<button type="button" onclick="loop()">click meme (loop) </button>
+    	<button type="button" onclick="nastyLoop()">click meme (nasty loop) </button>
+
+    	<br>
+    	<button type="button" onclick="whileloop()">click meme (while loop) </button>
+
+    	<br>
+    	<button type="button" onclick="dowhileloop()">click meme (do while loop) </button>
+
+    	<br>
+    	<button type="button" onclick="ifelseCondition()">click meme (if) </button>
+    	<button type="button" onclick="NastyifelseCondition()">click meme (nasty if) </button>
+
+    	<br>
+    	<button type="button" onclick="arrayDEMO()">click meme (array) </button>
+    	<button type="button" onclick="NastyarrayDEMO()">click meme (nasty array) </button>
+
+    	<br>
+    	<button type="button" onclick="AssoarrayDEMO()">click meme (associate array) </button>
+    	<button type="button" onclick="NastyAssoarrayDEMO()">click meme (nasty associate array) </button>
+    	<div id="result">
+    	</div>
+    </body>
+</html>
