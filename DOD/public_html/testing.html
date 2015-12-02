@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+
+	</style>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div id="video-container">
+    <video id="camera-stream" width="500" autoplay></video>
+    <br>
+    <img src="">
+    <canvas id="canvas" style="display:none;" width="500" height="350"></canvas>
+  </div>
+  <script type="text/javascript">
+  var video = document.querySelector('video');
+  var canvas = document.querySelector('canvas');
+  var ctx = canvas.getContext('2d');
+
+  window.onload = function() {
+
+  // Normalize the various vendor prefixed versions of getUserMedia.
+  navigator.getUserMedia = (navigator.getUserMedia ||
+                            navigator.webkitGetUserMedia ||
+                            navigator.mozGetUserMedia || 
+                            navigator.msGetUserMedia);
+
+  if (navigator.getUserMedia) {
+  // Request the camera.
+    navigator.getUserMedia(
+    // Constraints
+    {
+      video: true
+    },
+
+    // Success Callback
+    function(localMediaStream) {
+    	// Get a reference to the video element on the page.
+		var vid = document.getElementById('camera-stream');
+
+		// Create an object URL for the video stream and use this 
+		// to set the video source.
+		vid.src = window.URL.createObjectURL(localMediaStream);
+		vid.addEventListener('click', snapshot, false);
+    },
+
+    // Error Callback
+    function(err) {
+      // Log the error to the console.
+      console.log('The following error occurred when trying to use getUserMedia: ' + err);
+    }
+  );
+	} else {
+ 		 alert('Sorry, your browser does not support getUserMedia');
+	}
+
+	  function snapshot() {
+    	if (navigator.getUserMedia) {
+      	ctx.drawImage(video, 0, 0, 500, 350);
+      	// "image/webp" works in Chrome.
+      	// Other browsers will fall back to image/png.
+      	document.querySelector('img').src = canvas.toDataURL('image/png');
+    	}
+  	}
+}
+</script>
+</body>
+</html>

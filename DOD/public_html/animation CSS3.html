@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ #outerspace {
+    position: relative; 
+    height: 400px;
+    width:760px;
+    background: #ffffff;
+    color: #fff;
+    animation-name:background;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes background {
+    0%   {background-color: blue; left:0px; top:0px;}
+    50%  {background-color: white; left:200px; top:200px;}
+    75%  {background-color: white; left:0px; top:300px;}
+    100% {background: #0c0440 url(space.jpg); left:0px; top:0px;}
+}
+  div.rocket {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    -webkit-transition: 2s ease-in;
+    -moz-transition: 2s ease-in;
+    -o-transition: 2s ease-in;
+    transition: 2s ease-in-out;
+  }
+  div.rocket div {
+    width: 192px;
+    height: 215px;
+    -webkit-transition: 2s ease-in-out;
+    -moz-transition: 2s ease-in-out;
+    -o-transition: 2s ease-in-out;
+    transition: 2s ease-in-out;
+    animation-name:rocket;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes rocket {
+    0%   {background-color: blue; left:0px; top:0px;}
+    50%  {background-color: white; left:200px; top:200px;}
+    75%  {background-color: white; left:0px; top:300px;}
+    100% {background: #0c0440 url(rocket.png); left:0px; top:0px;}
+}
+
+  #outerspace:hover div.rocket {
+    -webkit-transform: translate(540px,-200px);
+    -moz-transform: translate(540px,-200px);
+    -o-transform: translate(540px,-200px);
+    -ms-transform: translate(540px,-200px);
+    transform: translate(540px,-200px);
+  }
+  #outerspace:hover div.rocket div {
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+  </style>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div id="outerspace">
+    <div class="rocket">
+      <div><!-- rocket --></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+</script>
+</body>
+</html>

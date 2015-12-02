@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div#outerspace {
+	background: url(space.jpg);
+	width: 700px;
+	height: 500px;
+	position: absolute;
+	top: 50px;
+	left: -700px;
+}
+</style>
+<script>
+function slideIn(sI){
+	var slideIn = document.getElementById(sI);
+	slideIn.style.transition = "left 0.5s ease-in 0s";
+	slideIn.style.left = "0px";
+}
+function slideOut(sO){
+	var slideOut = document.getElementById(sO);
+	slideOut.style.transition = "left 0.5s ease-in 0s";
+	slideOut.style.left = "-700px";
+}
+</script>
+</head>
+<body>
+<button onclick="slideIn('outerspace');">slide in</button>
+<button onclick="slideOut('outerspace');">slide out</button>
+<div id="outerspace">outerspace</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Author: Michael Gribble
+	Date Written: 21 Oct 2015
+	Date Modified: 16, 18 Nov 2015
+	Course: CIT 261
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -->
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset = utf-8" />
+		<script type="text/javascript">
+		
+			// FOR-LOOP DEMONSTRATIONS
+			
+			var valArr = [19, 8, 5, 16, 1, 18, 4];
+			var increment = 0;
+			var storage = "";
+			var isDone = false;
+			
+			// Demonstration of for-loop, HAPPY PATH
+			console.log("For-loop Demo, HAPPY PATH - All elements present");
+			for (var i = 0; i < valArr.length; ++i) {
+				storage += valArr[i];
+				if ((i < valArr.length - 1) ? storage += ", " : storage += "");
+			}
+			console.log(storage);
+			console.log();
+			storage = "";
+			
+			/* 
+				Demonstration of for-loop, HAPPY PATH
+				Remove initializing statement, prep variable beforehand
+			*/
+			console.log("For-loop Demo, HAPPY PATH");
+			console.log("Removed initialization portion, prepped variable outside");
+			var i = 0;
+			for (; i < valArr.length; ++i) {
+				storage += valArr[i];
+				if ((i < valArr.length - 1) ? storage += ", " : storage += "");
+			}
+			console.log(storage);
+			console.log();
+			storage = "";
+			
+			/*
+				Demonstration of for-loop, HAPPY PATH
+				Remove conditional statement, place inside loop structure
+			*/
+			console.log("For-loop Demo, HAPPY PATH");
+			console.log("Removed conditional statement from header, placed inside " +
+						"loop structure");
+			for (var j = 0; ; ++j) {
+				if (j == valArr.length) {
+					break;
+				}
+				storage += valArr[j];
+				if ((j < valArr.length - 1) ? storage += ", " : storage += "");
+			}
+			console.log(storage);
+			console.log();
+			storage = "";
+			
+			/*
+				Demonstration of for-loop, HAPPY PATH
+				Remove incrementation portion, increment inside loop structure
+			*/
+			console.log("For-loop Demo, HAPPY PATH");
+			console.log("Removed incrementatin portion, increment inside loop structure");
+			for (var j = 0; j < valArr.length;) {
+				storage += valArr[j];
+				if ((j < valArr.length - 1) ? storage += ", " : storage += "");
+				++j;
+			}
+			console.log(storage);
+			console.log();
+			storage = "";
+			
+			/*
+				Demonstration of for-loop, NASTY PATH
+				Remove initializing statement, NO VARIABLE PREPPED BEFOREHAND
+			*/
+			console.log("For-loop Demo, NASTY PATH");
+			console.log("Removed initialization statement from loop structure, "
+						 + "did NOT prep variable outside");
+			for (; j < valArr.length; ++j) {
+				storage += valArr[j];
+				if ((j < valArr.length - 1) ? storage += ", " : storage += "");
+				++j;
+			}
+			console.log(storage);
+			console.log("(Note that, because 'j' was never created or initialized, " +
+						"we can't use it as an index to fetch data from the array)");
+			console.log();
+			storage = "";
+			
+			/*
+				Demonstration of for-loop, NASTY PATH
+				Remove conditional statement from structure
+				ERROR: Causes "allocation size overflow"
+			*/
+			console.log("For-loop Demo, NASTY PATH");
+			console.log("Removed conditional statement from loop structure");
+			try {
+			for (var j = 0; ; ++j) {
+				storage += valArr[i];
+				if ((i < valArr.length - 1) ? storage += ", " : storage += "");
+			}
+			console.log(storage);
+			console.log();
+			storage = "";
+			} catch (error) {
+				console.log(error);
+			}
+			console.log();
+			storage = "";
+			
+			/*
+				Demonstration of for-loop, NASTY PATH
+				Remove incrementation portion from structure
+			*/
+			console.log("For-loop Demo, NASTY PATH");
+			console.log("Removed incrementation portion from loop structure" + 
+						", NO incrementation inside loop structure");
+			try {
+				for (var j = 0; j < valArr.length;) {
+					storage += valArr[i];
+					if ((i < valArr.length - 1) ? storage += ", " : storage += "");
+				}
+				console.log(storage);
+			} catch (error) {
+				console.log(error);
+			}
+			console.log();
+			storage = "";
+			
+			// END FOR-LOOP DEMONSTRATIONS
+			// WHILE-LOOP DEMONSTRATIONS
+			
+			/*
+				Demonstration of while-loop, HAPPY PATH
+				Iterate downward, based on external variable, w/ condition
+			*/
+			console.log("While-loop Demo, HAPPY PATH");
+			console.log("Decrement from 42 to 0, condition set");
+			var myCount = 42;
+			while (myCount > 0) {
+				console.log(myCount);
+				myCount -= 7;
+			}
+			console.log();
+			
+			/*
+				Demonstration of while-loop, NASTY PATH
+				Iterate downward, based on external variable, no condition
+				WARNING: CREATES INFINITE LOOP
+			*/
+			console.log("While-loop Demo, NASTY PATH");
+			console.log("Decrement from 42 to 0, no condition set");
+			console.log("DANGER: No condition causes infinite loop");
+			console.log("");
+			/*
+			var myCount = 42;
+			while () {
+				console.log(myCount);
+				myCount -= 7;
+			}
+			*/
+			
+			/*
+				Demonstration of while-loop, NASTY PATH
+				Goal is to iterate downward, based on external variable
+				Iteration goes opposite of goal
+				WARNING: CREATES INFINITE LOOP
+			*/
+			console.log("While-loop Demo, NASTY PATH");
+			console.log("Condition calls for decrement, but value is incremented inside loop structure");
+			console.log("DANGER: This setup generates an infinite loop");
+			console.log("");
+			/*
+			var myCount = 42;
+			while (myCount > 0) {
+				console.log(myCount);
+				myCount += 7;
+			}
+			*/
+			
+			/*
+				Demonstration of while-loop, NASTY PATH
+				Goal is to iterate upward, based on external variable
+				Conditional statement is initially false
+				WARNING: LOOP NEVER EXECUTES
+			*/
+			console.log("While-loop Demo, NASTY PATH");
+			console.log("Goal is to iterate upward, but condition is initially false");
+			console.log("Thus, the loop never executes.");
+			
+			var myCount = 0;
+			console.log("Initial value is " + myCount + "; goal is to get to 10");
+			while (myCount < 0) {
+				++myCount;
+				console.log("Value is now: " + myCount);
+			}
+			console.log("");
+			
+			// END WHILE-LOOP DEMONSTRATIONS
+			// DO-WHILE-LOOP DEMONSTRATIONS
+			
+			/*
+				Demonstration of do-while loop, HAPPY PATH
+				Do-while guarantees minimum of 1 loop execution
+			*/
+			console.log("Do-while loop Demo, HAPPY PATH");
+			console.log("Goal is to iterate from 0 to 10");
+			console.log("Do-while structure guarantees minimum of 1 loop execution");
+			var myCount = 0;
+			console.log("Initial value is " + myCount + "; goal is to get to 10");
+			do {
+				++myCount;
+				console.log("Value is now: " + myCount);
+			} while (myCount < 10);
+			console.log("");
+			
+			/*
+				Demonstration of do-while loop, NASTY PATH
+				Loop executes once (do), but condition is initially false (while)
+				WARNING: LOOP ONLY EXECUTES ONCE
+			*/
+			console.log("Do-while loop Demo, NASTY PATH");
+			console.log("Goal is to iterate from 0 to 10");
+			console.log("While-condition is initially false; loop executes only once");
+			var count = 0;
+			console.log("Initial value is " + count + "; goal is 10");
+			do {
+				++count;
+				console.log("Value is now: " + count);
+			} while (count <= 0);
+			console.log("");
+			
+			/*
+				Demonstration of do-while loop, NASTY PATH
+				Infinite loop occurs when condition is always true
+				WARNING: INFINITE LOOP IS BAD!!!
+			*/
+			console.log("Do-while loop Demo, NASTY PATH");
+			console.log("Goal is to iterate from 0 to 10");
+			console.log("Condition is always true, results in INFINITE loop");
+			/*
+			var myCount = 0;
+			console.log("Initial value is " + myCount + "; goal is 10");
+			do {
+				++myCount;
+				console.log("Value is now: " + myCount);
+			} while (myCount >= 0);
+			*/
+			console.log("");
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+

@@ -1,0 +1,215 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Author: Michael Gribble
+	Date Written: 18 Nov 2015
+	Date Modified: 20, 23 Nov 2015
+	Course: CIT 261
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -->
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset = utf-8" />
+		<script type="text/javascript">
+		
+			// ARRAYS - NORMAL
+			
+			var arrME = [19, 8, 5, 16, 1, 18, 4];
+			
+			/*
+				Demonstrate arrays, HAPPY PATH
+				Array contents is all-numeric
+				(NOTE: all-same type of content is valid)
+			*/
+			console.log("Regular Array Demo, HAPPY PATH");
+			console.log("Array contents all of the same type (numeric)");
+			console.log("Displaying content below:");
+			console.log(arrME);
+			var len = arrME.length;
+			for (var i = 0; i < len; ++i) {
+				console.log(arrME[i]);
+			}
+			console.log("");
+			
+			/*
+				Demonstrate arrays, UNSURE PATH
+				Value at index 3 now changed to character 'P'
+			*/
+			arrME[3] = 'P';
+			console.log("Regular Array Demo, UNSURE PATH");
+			console.log("Value at index 3 now changed from 16 to character 'P'");
+			console.log("Displaying content below:");
+			console.log(arrME);
+			var len = arrME.length;
+			for (var i = 0; i < len; ++i) {
+				console.log(arrME[i]);
+			}
+			console.log("NOTE: This could easily cause confusion to users and other programmers");
+			console.log("");
+			
+			/*
+				Demonstrate arrays, HAPPY PATH
+				Value at index 5 changed to NULL
+			*/
+			arrME[5] = null;
+			console.log("Regular Array Demo, HAPPY PATH");
+			console.log("Value at index 5 now changed from 18 to 'null'");
+			console.log("Displaying content below:");
+			console.log(arrME);
+			for (var i = 0; i < len; ++i) {
+				console.log(arrME[i]);
+			}
+			console.log("NOTE: This is radically different behavior than found in C");
+			console.log("");
+			
+			/*
+				Demonstrate arrays, NASTY PATH
+				Return value at negative index
+			*/
+			console.log("Regular Array Demo, NASTY PATH");
+			console.log("Attempt to return a value using a negative index");
+			console.log(arrME[-7]);
+			console.log("Result is 'undefined', because it doesn't exist");
+			console.log("");
+			
+			/*
+				Demonstrate arrays, NASTY PATH
+				Return value at out-of-bounds index
+			*/
+			console.log("Regular Array Demo, NASTY PATH");
+			console.log("Attempt to return a value using an out-of-bounds index");
+			var len = arrME.length;
+			console.log(arrME[len]);
+			console.log("Result is 'undefined', because it doesn't exist");
+			console.log("");
+			
+			/*
+				Demonstrate arrays, NASTY PATH
+				Append ME to the end of the current array
+				Do so in such a way that a gap exists within the array
+			*/
+			console.log("Regular Array Demo, NASTY PATH");
+			console.log("Append values to the end, leaving a gap in between");
+			arrME[10] = "M";
+			arrME[11] = "E";
+			console.log("Displaying content below:");
+			console.log(arrME);
+			var len = arrME.length;
+			var val;
+			for (var i = 0; i < len; ++i) {
+				console.log(arrME[i]);
+			}
+			console.log("Note the 'undefined' values filling the gap");
+			console.log("");
+			
+			// END ARRAYS - NORMAL
+			// ARRAYS - ASSOCIATIVE
+			
+			console.log("WARNING: Using a named index causes JS to 'redefine the "
+						+ "array to a standard object.");
+			console.log("\t After that, all array methods & properties will "
+						+ "produce incorrect results.'");
+			console.log("");
+			
+			/*
+				Demonstrate associative array, HAPPY PATH
+				Create & display contents of an associative array
+			*/
+			var assoc = {
+				name: 'Sir Lancelot of Camelot',
+				quest: 'To seek the Holy Grail',
+				color: 'Blue'
+			};
+			console.log("Associative Array Demo, HAPPY PATH");
+			console.log("Create & display contents of an associative array");
+			console.log(assoc);
+			console.log("");
+			
+			/*
+				Demonstrate associative array, HAPPY PATH
+				Access a value in the array, using its matching key
+			*/
+			console.log("Associative Array Demo, HAPPY PATH");
+			console.log("Retrieve a value via its key, using array notation");
+			console.log("The value linked to key == 'quest' is: " + assoc['quest']);
+			console.log("NOTE: You must use the format shown below for proper access");
+			console.log("arrayName['keyName']");
+			console.log("");
+			
+			/*
+				Demonstrate associative array, UNCERTAIN PATH
+				Create an associative array with a null value
+			*/
+			console.log("Associative Array Demo, UNCERTAIN PATH");
+			console.log("Create an associative array containing a null value, " + 
+						"but with a proper key");
+			
+			var assoc = {
+				name: 'Sir Robin of Camelot',
+				quest: 'To seek the Holy Grail',
+				capitalOfAssyria: 'I don\'t know that!',
+				color: null
+			};
+			console.log(assoc);
+			console.log("");
+			
+			/*
+				Demonstrate associative array, NASTY PATH
+				Create an associative array with a null entry
+			*/
+			console.log("Associative Array Demo, NASTY PATH");
+			console.log("Create an associative array containing a null entry");
+			
+			try {
+				var assoc = {
+					name: 'Sir Robin of Camelot',
+					quest: 'To seek the Holy Grail',
+					null: 'Coconuts', 
+					capitalOfAssyria: 'I don\'t know that!'
+				};
+				console.log(assoc);
+			} catch (error) {
+				console.log(error);
+			}
+			console.log("");
+			
+			/*
+				Demonstrate associative array, NASTY PATH
+				Fetch a value from an array, using 'null' as the key
+			*/
+			console.log("Associative Array Demo, NASTY PATH");
+			console.log("Fetch a value from an array, using 'null' as the key");
+			
+			var assoc = {
+				name: 'Sir Robin of Camelot',
+				quest: 'To seek the Holy Grail',
+				capitalOfAssyria: 'I don\'t know that!'
+			};
+			console.log(assoc[null]);
+			console.log("Note that 'undefined' is returned.");
+			console.log("");
+			
+			/*
+				Demonstrate associative array, NASTY PATH
+				Fetch a value from an array, using a nonexistent key
+			*/
+			console.log("Associative Array Demo, NASTY PATH");
+			console.log("Fetch a value from an array, using a nonexistent key");
+			
+			var assoc = {
+				name: 'Sir Robin of Camelot',
+				quest: 'To seek the Holy Grail',
+				capitalOfAssyria: 'I don\'t know that!'
+			};
+			console.log(assoc['age']);
+			console.log("Note that 'undefined' is returned.");
+			console.log("");
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
