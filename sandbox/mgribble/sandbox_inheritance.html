@@ -1,0 +1,51 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Author: Michael Gribble
+	Date Written: 2 Dec 2015
+	Course: CIT 261
+	Purpose: Demonstrate happy/nasty paths for JavaScript inheritance
+			 Based on Sam Hibbard's work
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -->
+ 
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset = utf-8" />
+		<script type="javascript">
+		
+			function Animal (type, legCount) {
+				this.type = type;
+				this.legCount = legCount;
+			}
+			
+			function Elephant (name, type) {
+				var breedType = type;
+				
+				this.name = name;
+				Animal.call(this, "Elephant", 4);
+				
+				this.getBreed = function() {
+					console.log("Breed == " + breedType);
+				}
+				
+				this.setBreed = function(type) {
+					breedType = type;
+				}
+				
+				function introduceMe() {
+					console.log("My name is Babar, & I am an Elephant.");
+				}
+			}
+			
+			function Spider (name, type) {
+				this.name = name;
+				Animal.call(this, "Spider", 8);
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
