@@ -33,7 +33,7 @@
 				}
 				
 				function introduceMe() {
-					console.log("My name is Babar, & I am an Elephant.");
+					console.log("I am an " + breedType + " Elephant");
 				}
 			}
 			
@@ -41,7 +41,17 @@
 				this.name = name;
 				Animal.call(this, "Spider", 8);
 				
+				function spinWeb() {
+					console.log("I have spun a web");
+				}
+			}
+			
+			window.onload = function () {
 				
+				// HAPPY PATH
+				var babar = new Elephant("Babar", "African");
+				console.log(babar.name);
+				console.log(babar.breedType);
 			}
 			
 		</script>
