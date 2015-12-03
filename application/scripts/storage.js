@@ -8,8 +8,20 @@
 *       database or from local storage.
 ****************************************************/
 
-// Grab the database!
-var data = new Firebase('https://blistering-torch-3029.firebaseIO.com/');
+function sendRequest(url, method, func) {
+    // Create the request
+    var request = new XMLHttpRequest();
+
+    // Now see when it is finished
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            func(request.responseText);
+        }
+    }
+
+    request.open(method, url, true);
+    request.send();
+}
 
 /*************************************
 * downloadNewLabyrinth
@@ -19,11 +31,7 @@ var data = new Firebase('https://blistering-torch-3029.firebaseIO.com/');
 *************************************/
 function downloadNewLabyrinth() {
     // Grab the labyrinths
-    var labs = data.child('labyrinths');
-    console.log(labs);
-    // Loop through the array
-    // labs.forEach(function(snapshot) {
-    //     var lab = snapshot.val();
-    //     console.log(lab.name);
-    // });
+    sendRequest('https://php-shibbard01.rhcloud.com/database.php', 'POST', function(params) {
+        console.log(params);
+    });
 }

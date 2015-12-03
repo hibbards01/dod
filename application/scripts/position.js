@@ -1,6 +1,6 @@
 /****************************************************
 * Program:
-*   location.js
+*   position.js
 * Author:
 *   Samuel Hibbard
 * Summary:
