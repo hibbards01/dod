@@ -26,10 +26,10 @@ function sendRequest(url, method, data, func) {
     // See if we are making a post
     if (method == 'POST') {
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(data);
-    } else {
-        request.send();
     }
+
+    // Now send the request!
+    request.send(data);
 }
 
 /*************************************
