@@ -15,7 +15,6 @@ function sendRequest(url, method, data, func) {
     // Now see when it is finished
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
-            // json = JSON.parse(request.responseText);
             func(request.responseText);
         }
     }
