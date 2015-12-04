@@ -136,3 +136,35 @@ function downloadNewLabyrinth() {
     }
 }
 
+/*************************************
+* grabBoard
+*   This will return the board from
+*       localstorage.
+*************************************/
+function grabBoard(boardID) {
+    // Grab the cells for the particular board
+    var boards = JSON.parse(localStorage['labBoards']);
+
+    // Now find the right board
+    var board = null;
+    for (var i = 0; i < boards.length; i++) {
+        if (boards[i].id == boardID) {
+            // We found it!
+            board = boards[i];
+        }
+    }
+
+    return board;
+}
+
+/*************************************
+* grabLabyrinths
+*   This will grab the labyrinths that
+*       the user has.
+*************************************/
+function grabLabyrinths() {
+    // Grab all the labyrinths
+    var labs = JSON.parse(localStorage['labyrinths']);
+
+    return labs;
+}
