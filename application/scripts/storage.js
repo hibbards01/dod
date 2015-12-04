@@ -89,46 +89,50 @@ function downloadNewLabyrinth() {
             }
         }
     });
-}
 
-/*************************************
-* saveToLocalStorage
-*   Now save to local storge.
-*************************************/
-function saveToLocalStorage(labs, savedLabs) {
-    // Loop through the new labs and save them
-    for (var i = 0; i < labs.length; i++) {
-        savedLabs.push(labs[i]);
+    //
+    // Private functions
+    //
+    /*************************************
+    * saveToLocalStorage
+    *   Now save to local storge.
+    *************************************/
+    function saveToLocalStorage(labs, savedLabs) {
+        // Loop through the new labs and save them
+        for (var i = 0; i < labs.length; i++) {
+            savedLabs.push(labs[i]);
+        }
+
+        localStorage['labyrinths'] = JSON.stringify(savedLabs);
     }
 
-    localStorage['labyrinths'] = JSON.stringify(savedLabs);
-}
+    /*************************************
+    * downloadBoards
+    *   This will download the new boards.
+    *************************************/
+    function downloadBoards(labs) {
+        // Now make a request to the server for the boards
+        for (var i = 0; i < labs.length; i++) {
+            var lab = 'labyrinth=' + labs[i].boardID;
 
-/*************************************
-* downloadBoards
-*   This will download the new boards.
-*************************************/
-function downloadBoards(labs) {
-    // Now make a request to the server for the boards
-    for (var i = 0; i < labs.length; i++) {
-        var lab = 'labyrinth=' + labs[i].boardID;
+            sendRequest('https://php-shibbard01.rhcloud.com/database.php', 'POST', lab, function(params) {
+                // Now save it to local storage
+                // See if this is the first time
+                var savedBoards = localStorage['labBoards'];
 
-        sendRequest('https://php-shibbard01.rhcloud.com/database.php', 'POST', lab, function(params) {
-            // Now save it to local storage
-            // See if this is the first time
-            var savedBoards = localStorage['labBoards'];
+                var boards = [];
+                if (savedBoards != undefined) {
+                    // Grab the array
+                    boards = JSON.parse(savedBoards);
+                }
 
-            var boards = [];
-            if (savedBoards != undefined) {
-                // Grab the array
-                boards = JSON.parse(savedBoards);
-            }
+                // Push it onto the array
+                boards.push(JSON.parse(params));
 
-            // Push it onto the array
-            boards.push(JSON.parse(params));
-
-            // Now save it!
-            localStorage['labBoards'] = JSON.stringify(boards);
-        });
+                // Now save it!
+                localStorage['labBoards'] = JSON.stringify(boards);
+            });
+        }
     }
 }
+
