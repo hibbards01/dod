@@ -1,3 +1,0 @@
-This content was requested using the GET method.
-<br /><br />
-Requested at: 11/2/2015 4:42:28 PM

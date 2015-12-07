@@ -1,0 +1,57 @@
+  html, body{
+  margin: 0;
+  min-height: 100%;
+}
+body{
+  position: relative;x
+      padding: 30px;
+    font-family: 'Open Sans', sans-serif;
+    background: #f1c40f;
+    color: #fff;
+}
+.video-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+.overlay {
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    position: absolute;
+    top: 50px;
+    left: -700px;
+    background-color: blue;
+    border-radius: 5px;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+    font-size: 30px;
+    text-align: center;
+}
+.menu {
+    line-height: 200px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: 80px;
+    margin-left: -650px;
+    border-radius: 5px;
+    text-align: left;
+    z-index: 11;
+    background-color: #31B404;
+}
+.reset {
+    line-height: 200px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: 80px;
+    margin-left: -150px;
+    border-radius: 5px;
+    text-align: left;
+    z-index: 11;
+}
