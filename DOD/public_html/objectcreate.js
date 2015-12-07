@@ -37,13 +37,18 @@ function HEB(manager, customer,product)
 }
 //////////////////////NASTY PATH/////////////////////
 function Nastystore(manager, customer, product) {
-    //this.manager = sutstomet;
+    this.manager = manager;
     this.customer = customer;
 
-    //this.size = i;
+    this.product = new Array();
+    for (var i = 0; i < product.length; i++) {
+        this.product[i] = product[i];
+    }
+
+    this.size = i;
 
     this.addProduct = function(stock) {
-    //    this.product[this.size++] = stock;
+        this.product[this.size++] = stock;
     };
 
     this.showProduct = function() {
@@ -53,7 +58,12 @@ function Nastystore(manager, customer, product) {
         }
         console.log(list);
     };
+
+    this.inherit = function(){
+        store.call(this,"walmart", customer,product);
+    }
 }
+
 
 function NastyHEB(manager, customer,product)
 {
@@ -79,16 +89,18 @@ window.onload = function() {
     heb.addProduct("soda");
     heb.showProduct();
 
+    var walmart2 = new Nastystore("Tim","May",["corn", "soda"]);
+
     //////////////////////////NASTY PATH////////////////////////////////////
-    var Nastywalmart = new Nastystore("Tim","May",["corn", "soda"]);
+    // var Nastywalmart = new Nastystore("Tim","May",["corn", "soda"]);
 
-    Nastywalmart.addProduct("meat");
-    Nastywalmart.showProduct();
+    // Nastywalmart.addProduct("meat");
+    // Nastywalmart.showProduct();
 
-    var Nastyheb = new NastyHEB("TIM", "LILY", ["cupCakes"])
-    console.log(Nastyheb.load);
-    Nastyheb.addProduct("soda");
-    Nastyheb.showProduct();
+    // var Nastyheb = new NastyHEB("TIM", "LILY", ["cupCakes"])
+    // console.log(Nastyheb.load);
+    // Nastyheb.addProduct("soda");
+    // Nastyheb.showProduct();
 
     var fun = function_name;
     fun(1,"sdf",2);

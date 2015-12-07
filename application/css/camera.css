@@ -3,8 +3,8 @@
   min-height: 100%;
 }
 body{
-  position: relative;x
-      padding: 30px;
+  position: relative;
+    padding: 30px;
     font-family: 'Open Sans', sans-serif;
     background: #f1c40f;
     color: #fff;
@@ -54,4 +54,16 @@ body{
     border-radius: 5px;
     text-align: left;
     z-index: 11;
+}
+
+@media only screen and (max-width: 500px) {
+    .video-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
 }
