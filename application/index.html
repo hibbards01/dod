@@ -1,116 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-    html, body{
-      margin: 0;
-  min-height: 100%;
-}
-body{
-  position: relative;
-      padding: 30px;
-    font-family: 'Open Sans', sans-serif;
-    background: #f1c40f;
-    color: #fff;
-}
-.video-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 80%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 10;
-}
-.overlay {
-    width: 300px;
-    height: 200px;
-    line-height: 200px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -500px;
-    background-color: blue;
-    border-radius: 5px;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-.menu {
-    line-height: 200px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: 80px;
-    margin-left: -650px;
-    border-radius: 5px;
-    text-align: left;
-    z-index: 11;
-    background-color: #31B404;
-}
-.reset {
-    line-height: 200px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: 80px;
-    margin-left: -150px;
-    border-radius: 5px;
-    text-align: left;
-    z-index: 11;
-}
-    </style>
-  <meta charset="utf-8">
-  <title></title>
-</head>
-<body>
-  <div class="video-container">
-    <video id="camera-stream" width="600" height="450" autoplay>
-    </video>
-    <div class="overlay"> 
-    </div>
-    <br>
-    <img class="menu" src="image/mobile_menu_button.png" height="40" width="40">
-    <img class="reset" src="image/reset_button.png" height="40" width="40">
-  </div>
-  <script type="text/javascript"> 
-  var video = document.querySelector('video');
-  window.onload = function() {
-
-  // Normalize the various vendor prefixed versions of getUserMedia.
-  navigator.getUserMedia = (navigator.getUserMedia ||
-                            navigator.webkitGetUserMedia ||
-                            navigator.mozGetUserMedia || 
-                            navigator.msGetUserMedia);
-
-  if (navigator.getUserMedia) {
-  // Request the camera.
-    navigator.getUserMedia(
-    // Constraints
-    {
-      video: true
-    },
-
-    // Success Callback
-    function(localMediaStream) {
-      // Get a reference to the video element on the page.
-    var vid = document.getElementById('camera-stream');
-
-    // Create an object URL for the video stream and use this 
-    // to set the video source.
-    vid.src = window.URL.createObjectURL(localMediaStream);
-    },
-
-    // Error Callback
-    function(err) {
-      // Log the error to the console.
-      console.log('The following error occurred when trying to use getUserMedia: ' + err);
-    }
-  );
-  } else {
-     alert('Sorry, your browser does not support getUserMedia');
-  }
-}
-</script>
-</body>
+<html>
+    <head>
+        <title>Labyrinth</title>
+        <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+        <script src='scripts/storage.js'></script>
+        <script src='scripts/main.js'></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+    </head>
+    <body id="body">
+        <h1>Grab location</h1>
+        <button id="location">Click Here</button>
+        <a href="database.php">Click here</a>
+    </body>
 </html>
