@@ -54,38 +54,36 @@ function downloadNewLabyrinth() {
         if (savedLabs == undefined) {
             // Save all the labs
             localStorage['labyrinths'] = JSON.stringify(labs);
+            savedLabs = localStorage['labyrinths'];
+        }
 
-            // Now download the boards
-            downloadBoards(labs);
-        } else {
-            // Loop through the local storage
-            var isNew = false;
-            var newLabs = [];
-            savedLabs = JSON.parse(savedLabs);
+        // Loop through the local storage
+        var isNew = false;
+        var newLabs = [];
+        savedLabs = JSON.parse(savedLabs);
 
-            for (var i = 0; i < savedLabs.length; i++) {
-                // Now check the ids with the server data
-                // Initailly think there is a new one
-                isNew = true;
+        for (var i = 0; i < savedLabs.length; i++) {
+            // Now check the ids with the server data
+            // Initailly think there is a new one
+            isNew = true;
 
-                for (var j = 0; j < labs.length; j++) {
-                    if (savedLabs[i].boardID == labs[j].boardID) {
-                        isNew = false;
-                    }
-                }
-
-                // If still true then add the id to the list
-                if (isNew) {
-                    newLabs.push(savedLabs[i]);
+            for (var j = 0; j < labs.length; j++) {
+                if (savedLabs[i].boardID == labs[j].boardID) {
+                    isNew = false;
                 }
             }
 
-            // Now see if we need to make a request
-            // And save to local storage
-            if (newLabs.length > 0) {
-                saveToLocalStorage(newLabs, savedLabs);
-                downloadBoards(newLabs);
+            // If still true then add the id to the list
+            if (isNew) {
+                newLabs.push(savedLabs[i]);
             }
+        }
+
+        // Now see if we need to make a request
+        // And save to local storage
+        if (newLabs.length > 0) {
+            saveToLocalStorage(newLabs, savedLabs);
+            downloadBoards(newLabs);
         }
     });
 
