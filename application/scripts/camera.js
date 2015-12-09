@@ -1,3 +1,4 @@
+ var myDataRef = new Firebase('https://crackling-fire-9429.firebaseapp.com');
  var video = document.querySelector('video');
   window.onload = function() {
 

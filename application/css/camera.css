@@ -56,14 +56,62 @@ body{
     z-index: 11;
 }
 
-@media only screen and (max-width: 500px) {
-    .video-container{
+@media only screen and (max-width: 1024px) {
+  html, body{
+  margin: 0;
+  min-height: 100%;
+}
+body{
+  position: relative;
+    padding: 30px;
+    font-family: 'Open Sans', sans-serif;
+    background: #f1c40f;
+    color: #fff;
+}
+.video-container{
     position: absolute;
     top: 0;
     left: 0;
-    height:100%;
+    height: 80%;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
     z-index: 10;
+}
+.overlay {
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    position: absolute;
+    top: 50px;
+    left: -700px;
+    background-color: blue;
+    border-radius: 5px;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+    font-size: 30px;
+    text-align: center;
+}
+.menu {
+    line-height: 200px;
+    position: absolute;
+    top: 100%; 
+    left: 100%;
+    margin-top: 300px;
+    margin-left: -1000px;
+    border-radius: 5px;
+    text-align: left;
+    z-index: 11;
+    background-color: #31B404;
+}
+.reset {
+    line-height: 200px;
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    margin-top: 300px;
+    margin-left: 0px;
+    border-radius: 5px;
+    text-align: left;
+    z-index: 11;
 }
 }

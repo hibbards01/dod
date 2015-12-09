@@ -27,8 +27,7 @@ function store(manager, customer, product) {
 
 function HEB(manager, customer,product)
 {
-    this.manager = manager;
-    store.call(this,"HEB",customer,product);
+    store.call(this, manager, customer, product);
 
         ////method
     this.load = function(){
@@ -60,7 +59,7 @@ function Nastystore(manager, customer, product) {
     };
 
     this.inherit = function(){
-        store.call(this,"walmart", customer,product);
+        Nastystore.call(this,"walmart", customer, product);
     }
 }
 
@@ -84,12 +83,14 @@ window.onload = function() {
     walmart.addProduct("meat");
     walmart.showProduct();
 
-    var heb = new HEB("TIM", "LILY", ["cupCakes"])
+    var heb = new HEB("timmy","LILY", ["cupCakes"])
     console.log(heb.load);
     heb.addProduct("soda");
     heb.showProduct();
 
-    var walmart2 = new Nastystore("Tim","May",["corn", "soda"]);
+    var walmart2 = new Nastystore("Timmy","Mayer",["Cornstarch", "soda"]);
+    walmart2.inherit("Timmy","Mayer",["Cornstarch", "soda"]);
+    walmart2.showProduct();
 
     //////////////////////////NASTY PATH////////////////////////////////////
     // var Nastywalmart = new Nastystore("Tim","May",["corn", "soda"]);
