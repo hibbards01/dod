@@ -15,7 +15,6 @@ function sendRequest(url, method, data, func) {
     // Now see when it is finished
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
-            // json = JSON.parse(request.responseText);
             func(request.responseText);
         }
     }
@@ -26,10 +25,10 @@ function sendRequest(url, method, data, func) {
     // See if we are making a post
     if (method == 'POST') {
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(data);
-    } else {
-        request.send();
     }
+
+    // Now send the request!
+    request.send(data);
 }
 
 /*************************************
@@ -55,40 +54,114 @@ function downloadNewLabyrinth() {
         if (savedLabs == undefined) {
             // Save all the labs
             localStorage['labyrinths'] = JSON.stringify(labs);
+            savedLabs = localStorage['labyrinths'];
+        }
 
-            // Now download the boards
-            downloadBoards(labs);
-        } else {
-            // Loop through the local storage
-            var isNew = false;
-            var newLabs = [];
-            savedLabs = JSON.parse(savedLabs);
+        // Loop through the local storage
+        var isNew = false;
+        var newLabs = [];
+        savedLabs = JSON.parse(savedLabs);
 
-            for (var i = 0; i < savedLabs.length; i++) {
-                // Now check the ids with the server data
-                // Initailly think there is a new one
-                isNew = true;
+        for (var i = 0; i < savedLabs.length; i++) {
+            // Now check the ids with the server data
+            // Initailly think there is a new one
+            isNew = true;
 
-                for (var j = 0; j < labs.length; j++) {
-                    if (savedLabs[i].boardID == labs[j].boardID) {
-                        isNew = false;
-                    }
-                }
-
-                // If still true then add the id to the list
-                if (isNew) {
-                    newLabs.push(savedLabs[i]);
+            for (var j = 0; j < labs.length; j++) {
+                if (savedLabs[i].boardID == labs[j].boardID) {
+                    isNew = false;
                 }
             }
+
+            // If still true then add the id to the list
+            if (isNew) {
+                newLabs.push(savedLabs[i]);
+            }
+        }
+
+        // Now see if we need to make a request
+        // And save to local storage
+        if (newLabs.length > 0) {
+            saveToLocalStorage(newLabs, savedLabs);
+            downloadBoards(newLabs);
         }
     });
+
+    //
+    // Private functions
+    //
+    /*************************************
+    * saveToLocalStorage
+    *   Now save to local storge.
+    *************************************/
+    function saveToLocalStorage(labs, savedLabs) {
+        // Loop through the new labs and save them
+        for (var i = 0; i < labs.length; i++) {
+            savedLabs.push(labs[i]);
+        }
+
+        localStorage['labyrinths'] = JSON.stringify(savedLabs);
+    }
+
+    /*************************************
+    * downloadBoards
+    *   This will download the new boards.
+    *************************************/
+    function downloadBoards(labs) {
+        // Now make a request to the server for the boards
+        for (var i = 0; i < labs.length; i++) {
+            var lab = 'labyrinth=' + labs[i].boardID;
+
+            sendRequest('https://php-shibbard01.rhcloud.com/database.php', 'POST', lab, function(params) {
+                // Now save it to local storage
+                // See if this is the first time
+                var savedBoards = localStorage['labBoards'];
+
+                var boards = [];
+                if (savedBoards != undefined) {
+                    // Grab the array
+                    boards = JSON.parse(savedBoards);
+                }
+
+                // Push it onto the array
+                boards.push(JSON.parse(params));
+
+                // Now save it!
+                localStorage['labBoards'] = JSON.stringify(boards);
+            });
+        }
+    }
 }
 
 /*************************************
-* downloadBoards
-*   This will download the new boards.
+* grabBoard
+*   This will return the board from
+*       localstorage.
 *************************************/
-function downloadBoards(labs) {
-    // Now make a request to the server
-    console.log(labs);
+function grabBoard(boardID) {
+    // Grab the cells for the particular board
+    var boards = JSON.parse(localStorage['labBoards']);
+
+    // Now find the right board
+    var board = null;
+    for (var i = 0; i < boards.length; i++) {
+        if (boards[i].id == boardID) {
+            // We found it!
+            board = boards[i];
+        }
+    }
+
+    return board;
+}
+
+/*************************************
+* grabLabyrinths
+*   This will grab the labyrinths that
+*       the user has.
+*************************************/
+function grabLabyrinths() {
+    // Grab all the labyrinths
+    var labs = JSON.parse(localStorage['labyrinths']);
+
+    return labs;
 }
